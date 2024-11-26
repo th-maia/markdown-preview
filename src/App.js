@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Preview from './Preview';
+import React from 'react';
+import { mdExample } from './mdExample';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      textArea: '',
+      toMarkdown: [],
+    }
+    this.textAreaOnChange = this.textAreaOnChange.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({
+      textArea: mdExample, //put the inicial markdown example
+    })
+  }
+
+  textAreaOnChange(event) {
+    const text = event.target.value;
+    this.setState({textArea: text});
+  }
+
+  render() {
+    const {textArea} = this.state
+    return (
+      <div className="App">
+        <div className="left">
+          <h2 className="title">- <u>Your Markdown</u></h2>
+          <textarea id="editor" onChange={this.textAreaOnChange} value={textArea}/>
+        </div>
+        <div className="right">
+          <h2 className="title">- <u>Your Preview</u></h2>
+          <Preview text={textArea}/>
+        </div>
+      </div>
+    );
+  };
+};
 
 export default App;
