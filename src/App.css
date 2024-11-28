@@ -4,9 +4,8 @@
 
 body {
   background-color: #87b5b5;
-	height: 100svh;
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 div.App {
@@ -14,31 +13,39 @@ div.App {
 	gap: 1vw;
 	margin: 0;
 	padding: 0;
-	margin-right: 1vw;
-	margin-left: 1vw;
+	height: 100svh;
+	width: 100%;
+	justify-content: space-around;
 }
 
 .left, .right {
-	margin-left: 8px;
-	margin-right: 8px; 
+
+}
+
+div.title {
+	padding: 0;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
 textarea#editor {
-  height: 100%;
-  width: 48vw;
+  width: 47vw;
 	overflow: auto;
 	resize: horizontal;
 	box-shadow: 5px 5px 10px #4a4a4a;
+	height: 91%;
+	overflow: auto;
 }
 
 div#preview {
 	height: 100%;
-  width: 100%;
 	background-color: white;
 	border: 1px solid black;
 	overflow: auto;
-	padding-left: 8px;
 	box-shadow: 5px 5px 10px #4a4a4a;
+	height: 91%;
+	width: 100%;
+
 }
 
 #preview :is(h1, h2) {
@@ -67,5 +74,5 @@ div#preview {
 }
 
 #preview img {
-	max-width: 90%
+	max-width: 85%
 }
